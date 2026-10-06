@@ -2,6 +2,10 @@
 
 HukukAI, Türk mevzuatı üzerinden kullanıcıların hukuki sorularına ilgili kanun maddelerini bularak kaynaklı yanıtlar üretmeyi amaçlayan RAG (Retrieval-Augmented Generation) tabanlı bir yapay zekâ uygulamasıdır.
 
+## 🖥️ Uygulama Görünümü
+
+![HukukAI Demo](screenshots/hukukai-demo.png)
+
 ## 🚀 Özellikler
 
 - Türkçe hukuki soru-cevap sistemi
