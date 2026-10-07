@@ -145,8 +145,10 @@ Mobil uygulamanın backend ile iletişim kurabilmesi için FastAPI sunucusunu ye
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-> Mobil uygulamadaki `API_URL` değeri, backend'in çalıştığı bilgisayarın yerel IP adresine göre ayarlanmalıdır.
+Mobil uygulama için `mobile/.env.example` dosyasını `.env` adıyla kopyalayın ve backend'in çalıştığı bilgisayarın yerel IP adresini girin:
 
+```env
+EXPO_PUBLIC_API_URL=http://YOUR_LOCAL_IP:8000
 ## 🔐 Güvenlik
 
 Gemini API anahtarı kaynak kod içerisinde tutulmaz. API anahtarı `.env` dosyasında saklanır ve `.gitignore` aracılığıyla Git deposuna dahil edilmez.
