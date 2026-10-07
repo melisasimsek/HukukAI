@@ -18,6 +18,11 @@ HukukAI, Türk mevzuatı üzerinden kullanıcıların hukuki sorularına ilgili 
 - Hukuki dilekçe taslağı oluşturma
 - Word ve PDF çıktısı oluşturma
 - Web tabanlı kullanıcı arayüzü
+- React Native ve Expo ile geliştirilen mobil uygulama
+- Mobil cihaz üzerinden hukuki soru-cevap ve kaynak görüntüleme
+- Mobil mevzuat arama
+- Mobil uygulamada dilekçe oluşturma ve düzenleme
+- Dilekçeleri Word ve PDF formatında oluşturma ve paylaşma
 
 ## 🛠️ Kullanılan Teknolojiler
 
@@ -33,6 +38,14 @@ HukukAI, Türk mevzuatı üzerinden kullanıcıların hukuki sorularına ilgili 
 - Vite
 - JavaScript
 - CSS
+
+### Mobile
+- React Native
+- Expo
+- TypeScript
+- Expo Router
+- Expo File System
+- Expo Sharing
 
 ## 🧠 Sistem Yapısı
 
@@ -101,6 +114,38 @@ npm run dev
 ```
 
 Terminalde gösterilen yerel adresi tarayıcıda açın.
+
+## 📱 Mobil Uygulama Kurulumu
+
+Mobil uygulama React Native ve Expo kullanılarak geliştirilmiştir.
+
+Mobil uygulama klasörüne geçin:
+
+```bash
+cd mobile
+```
+
+Gerekli paketleri yükleyin:
+
+```bash
+npm install
+```
+
+Expo geliştirme sunucusunu başlatın:
+
+```bash
+npx expo start
+```
+
+Terminalde oluşturulan QR kodu, aynı ağdaki mobil cihazda Expo Go uygulaması ile tarayarak HukukAI mobil uygulamasını çalıştırabilirsiniz.
+
+Mobil uygulamanın backend ile iletişim kurabilmesi için FastAPI sunucusunu yerel ağ üzerinden erişilebilir şekilde başlatın:
+
+```bash
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+> Mobil uygulamadaki `API_URL` değeri, backend'in çalıştığı bilgisayarın yerel IP adresine göre ayarlanmalıdır.
 
 ## 🔐 Güvenlik
 
