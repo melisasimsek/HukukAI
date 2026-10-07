@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -43,6 +43,20 @@ export default function HomeScreen() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [serverOnline, setServerOnline] = useState<boolean | null>(null);
+  useEffect(() => {
+  const checkServer = async () => {
+    try {
+      const response = await fetch(`${API_URL}/health`);
+      setServerOnline(response.ok);
+    } catch (err) {
+      console.error('Backend health check failed:', err);
+      setServerOnline(false);
+    }
+  };
+
+  checkServer();
+}, []);
 
   const askQuestion = async () => {
     if (!question.trim()) return;
@@ -305,6 +319,18 @@ export default function HomeScreen() {
         <Text style={styles.subtitle}>
           Yapay zekâ destekli hukuk asistanı
         </Text>
+        {serverOnline !== null && (
+  <Text
+    style={{
+      marginTop: 8,
+      fontSize: 13,
+      fontWeight: '600',
+      color: serverOnline ? '#16A34A' : '#DC2626',
+    }}
+  >
+    {serverOnline ? '● Sistem hazır' : '● Sunucuya ulaşılamıyor'}
+  </Text>
+)}
 
         <View style={styles.tabs}>
           <TouchableOpacity

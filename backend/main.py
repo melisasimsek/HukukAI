@@ -23,6 +23,9 @@ app = FastAPI(
     title="HukukAI",
     version="1.8.0",
 )
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
 
 app.add_middleware(
     CORSMiddleware,
