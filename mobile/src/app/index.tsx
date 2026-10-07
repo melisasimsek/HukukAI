@@ -15,6 +15,11 @@ import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 
 const API_URL = process.env.EXPO_PUBLIC_API_URL;
+if (!API_URL) {
+  console.warn(
+    'EXPO_PUBLIC_API_URL tanımlanmamış. mobile/.env dosyasını kontrol edin.'
+  );
+}
 
 export default function HomeScreen() {
   const [activeTab, setActiveTab] =
