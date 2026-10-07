@@ -14,7 +14,7 @@ import {
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 
-const API_URL = 'http://192.168.1.103:8000';
+const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 export default function HomeScreen() {
   const [activeTab, setActiveTab] =
