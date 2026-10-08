@@ -7,9 +7,20 @@ from pathlib import Path
 KLASOR = Path(__file__).parent
 CIKTI = KLASOR / "yeni_mevzuat_dataset.json"
 
+MEVCUT_DATASET = KLASOR / "hukuk_dataset.json"
+
+with open(MEVCUT_DATASET, "r", encoding="utf-8-sig") as f:
+    mevcut_kayitlar = json.load(f)
+
 ESKI_KANUNLAR = {
-    "2709", "4721", "4857", "5237", "5271",
-    "5510", "6098", "6100", "6502", "6698"
+    kanun_no
+    for kayit in mevcut_kayitlar
+    if (kanun_no := re.match(r"^\s*(\d+)", kayit["kanun"]))
+}
+
+ESKI_KANUNLAR = {
+    eslesme.group(1)
+    for eslesme in ESKI_KANUNLAR
 }
 
 

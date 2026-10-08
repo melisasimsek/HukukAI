@@ -10,7 +10,7 @@ model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
 print("Model hazır.")
 
-client = chromadb.PersistentClient(path="../models/chroma_db")
+client = chromadb.PersistentClient(path="../models/chroma_db_yeni")
 collection = client.get_collection("hukuk_kanunlari")
 
 with open("../dataset/hukuk_dataset.json", "r", encoding="utf-8") as f:

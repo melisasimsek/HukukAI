@@ -17,7 +17,7 @@ print("Embedding modeli hazır.")
 
 
 # ESKİ CHROMADB'Yİ TEMİZLE
-db_path = "../models/chroma_db"
+db_path = "../models/chroma_db_yeni"
 
 if os.path.exists(db_path):
     shutil.rmtree(db_path)

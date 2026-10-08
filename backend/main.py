@@ -58,7 +58,7 @@ model = SentenceTransformer(
 print("Embedding modeli hazir.")
 
 client = chromadb.PersistentClient(
-    path="../models/chroma_db"
+    path="../models/chroma_db_yeni"
 )
 
 collection = client.get_collection(
@@ -1543,6 +1543,31 @@ def get_intent_law_numbers(semantic_intents):
 
     return law_numbers
 def retrieve(question):
+        # Kullanıcı kanun ve madde numarasını açıkça yazdıysa
+    # anlamsal arama yerine doğrudan ilgili maddeyi getir.
+    law_match = re.search(r"\b(\d{4})\b", question)
+
+    article_match = re.search(
+        r"\b(\d+)\s*(?:\.\s*)?madde(?:si|sini|sinin|de|den)?\b",
+        question,
+        re.IGNORECASE,
+    )
+
+    if law_match and article_match:
+        law_number = law_match.group(1)
+        article_no = article_match.group(1)
+
+        direct_item = DIRECT_ARTICLES.get(
+            (law_number, article_no)
+        )
+
+        if direct_item is not None:
+            print(
+                "Dogru madde dogrudan bulundu:",
+                law_number,
+                article_no,
+            )
+            return [direct_item.copy()]
     semantic_intents = detect_semantic_intents(question)
     expanded_question = expand_query(
     question,
@@ -1715,7 +1740,7 @@ def retrieve(question):
     print("Ilk 8 retrieval sonucu:")
 
     for i, item in enumerate(
-        combined[:8],
+        combined[:5],
         start=1,
     ):
         print(

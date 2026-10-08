@@ -24,3 +24,11 @@ models/chroma_db_backup/
 models/chroma_db_yedek/
 
 models/chroma_db/chroma.sqlite3
+# ChromaDB veritabanı
+models/chroma_db/
+backend/models/chroma_db/
+
+# Geçici dosyalar
+*.log
+.pytest_cache/
+/models/chroma_db_yeni/

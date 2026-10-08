@@ -28,7 +28,7 @@ print("Embedding modeli yukleniyor...")
 model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 print("Embedding modeli hazir.")
 
-client = chromadb.PersistentClient(path="../models/chroma_db")
+client = chromadb.PersistentClient(path="../models/chroma_db_yeni")
 collection = client.get_collection("hukuk_kanunlari")
 print("ChromaDB baglantisi hazir.")
 print("ChromaDB kayit sayisi:", collection.count())
