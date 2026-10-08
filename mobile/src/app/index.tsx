@@ -1,25 +1,16 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 
 import {
-
   ActivityIndicator,
-
   Alert,
-
+  Image,
   SafeAreaView,
-
   ScrollView,
-
   StyleSheet,
-
   Text,
-
   TextInput,
-
   TouchableOpacity,
-
   View,
-
 } from 'react-native';
 
 
@@ -449,14 +440,10 @@ export default function HomeScreen() {
 
 
           const safeTitle =
-
-            petitionTitle
-
-              .replace(/[**\\\**/:*?"<>|]/g, '')
-
-              .replace(/\s+/g, '_')
-
-              .slice(0, 40) || 'HukukAI_Dilekce';
+  petitionTitle
+    .replace(/[\\/:*?"<>|]/g, '')
+    .replace(/\s+/g, '_')
+    .slice(0, 40) || 'HukukAI_Dilekce';
 
 
 
@@ -618,11 +605,13 @@ export default function HomeScreen() {
 
       >
 
-        <View style={styles.logo}>
-
-          <Text style={styles.logoIcon}>⚖️</Text>
-
-        </View>
+      <View style={styles.logo}>
+  <Image
+   source={require('../../assets/images/icon.png')}
+    style={{ width: 90, height: 90 }}
+    resizeMode="contain"
+  />
+</View>
 
 
 
