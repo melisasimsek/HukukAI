@@ -2,6 +2,8 @@
 
 import {
   ActivityIndicator,
+   KeyboardAvoidingView,
+  Platform,
   Alert,
   Image,
   SafeAreaView,
@@ -596,6 +598,10 @@ export default function HomeScreen() {
   return (
 
     <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView
+  style={{ flex: 1 }}
+    behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+>
 
       <ScrollView
 
@@ -1403,8 +1409,8 @@ export default function HomeScreen() {
 
         </Text>
 
-      </ScrollView>
-
+            </ScrollView>
+    </KeyboardAvoidingView>
     </SafeAreaView>
 
   );
